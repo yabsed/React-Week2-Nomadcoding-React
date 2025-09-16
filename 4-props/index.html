@@ -32,6 +32,10 @@
         </button>
     }
 
+    // Don't need to redraw 
+    // unless the props are changed
+    const MemorizedBtn = React.memo(Btn)
+
     function App() {
 
         const [value, setValue] = React.useState("Save Changes"); 
@@ -47,10 +51,12 @@
 
         return (
             <div>
-                <Btn banana={value} onClick={changeValue}/>
-                <Btn banana="Continue"/>
+                <MemorizedBtn banana={value} onClick={changeValue}/>
+                <MemorizedBtn banana="Continue"/>
             </div>
         );
+
+
     }
 
     const root = document.getElementById("root");
