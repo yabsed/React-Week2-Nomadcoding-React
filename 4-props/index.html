@@ -13,7 +13,7 @@
 
 <script type="text/babel">
 
-    function Btn(props) {
+    function Btn({banana} /*props*/) {
 
         // object props has key
         // called "banana"
@@ -25,7 +25,7 @@
             border: 0,
             borderRadius: 10
         }}>
-            {props.banana}
+            {banana}
         </button>
     }
 
