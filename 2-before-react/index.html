@@ -13,22 +13,15 @@
 
 <script type="text/babel">
 
-    const root = document.getElementById("root"); 
     function App() {
-
         let [counter, setCounter] = React.useState(0); 
-        // same as doing
-        // const data = React.useState(0); 
-        // const [counter, setCounter] = [data[0], data[1]]; 
-        
         const onClick = () => {
-            setCounter(counter+1);  
-            // counter++ is inefficient
-            // becasuse it requires additional rendering
-        }
-
-        // recreate everything with new value!
-        
+            // setCounter(counter+1);  
+            // if you want to calculate
+            // based on current state
+            // you can use this kind of function
+            setCounter(current => current + 1); 
+        }        
         return (
             <div>
                 <h3>
@@ -40,6 +33,8 @@
             </div>
         ); 
     } 
+    
+    const root = document.getElementById("root"); 
     ReactDOM.render(<App/>, root);
 
 </script>
