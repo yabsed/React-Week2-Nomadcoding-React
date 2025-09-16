@@ -13,33 +13,28 @@
 
 <script type="text/babel">
 
-    function Btn({banana} /*props*/) {
-
-        // object props has key
-        // called "banana"
+    function Btn({banana, big}) {
 
         return <button style={{
             backgroundColor: "tomato", 
             color:"white",
             padding: "10px 20px",
             border: 0,
-            borderRadius: 10
+            borderRadius: 10,
+            fontSize: big ? 18 : 10,
         }}>
             {banana}
         </button>
     }
 
-    // btn is a function
-    // and we are sending arguments to parameters!
     function App() {
         return (
             <div>
-                <Btn banana="Save Changes"/>
-                <Btn banana="Continue"/>
+                <Btn banana="Save Changes" big={true}/>
+                <Btn banana="Continue" big={false}/>
             </div>
         );
     }
-    // we made sth reusable
 
     const root = document.getElementById("root");
     ReactDOM.render(<App/>, root);
