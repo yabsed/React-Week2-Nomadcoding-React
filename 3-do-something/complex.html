@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div id="root"></div>
+</body>
+<!-- ReactJS -->
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<!-- ReactDOM -->
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<!-- Babel -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+
+    function MinutesToHours() {
+
+        // amout
+        const [amout, setAmout] = React.useState(0);
+        const onChange = (event) => {
+            setAmout(event.target.value); 
+        }
+        const reset = () => setAmout(0)
+
+        // flipped
+        const [flipped, setFlipped] = React.useState(false); 
+        const onFlip = () => {
+            reset(); 
+            setFlipped(flipped => !flipped); 
+        }
+
+        return (
+            <div>
+                <h1>Super Converter</h1>
+                <div>
+                    <label htmlFor="amout">Amout</label>
+                    <input
+                        value={flipped ? Math.round(amout*60) : amout}
+                        id="amout"
+                        placeholder="amout"
+                        type="number"
+                        onChange={onChange}
+                        disabled={flipped === true}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="hours">Hours</label>
+                    <input
+                        value={flipped ? amout : Math.round(amout/60)}
+                        id="hours"
+                        placeholder="Hours"
+                        type="number" 
+                        onChange={onChange}
+                        disabled={flipped === false}/>
+                </div>
+                <div>
+                    <button onClick={reset}>
+                        Reset
+                    </button>
+                    <button onClick={onFlip}>
+                        Flip
+                    </button>
+                </div>
+            </div>
+        );
+    }
+    function App() {
+        return (
+            <h1>Super Converter</h1>
+        );
+    }
+
+    const root = document.getElementById("root");
+    ReactDOM.render(<App/>, root);
+
+</script>
+</script>
+
+</html>
