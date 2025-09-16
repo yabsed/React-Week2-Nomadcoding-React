@@ -12,29 +12,31 @@
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
 <script type="text/babel">
-    const root = document.getElementById("root"); 
-
-    const Title = () =>
-    <h3 id="title" 
-    onMouseEnter={() => console.log("mouse enter")}> 
-        Hello I am a h3!
-    </h3>
-
-    const Button = () =>
-    <button 
-    onClick={() => console.log('im click')} 
-    style={{ backgroundColor: "tomato" }}>
-        Click Me
-    </button>
     
-    const Container = () =>
-    <div>
-        <Title/>
-        <Button/>
-    </div>
-    // Use Upper Case!
+    let counter = 0; 
+    function countUP() {
+        counter++; 
+        render(); 
+    }
 
-    ReactDOM.render(<Container/>, root); 
+    function render(){
+        // Unless the below it is not being updated!
+        // We only update "the only thing we change~!"
+        ReactDOM.render(<App/>, root); 
+    }
+
+    const root = document.getElementById("root"); 
+    const App = () =>
+    <div>
+        <h3>
+            Total Clicks: {counter}
+        </h3>
+        <button onClick={countUP}>
+            click me
+        </button>
+    </div>
+    render(); 
+
 </script>
 </script>
 
