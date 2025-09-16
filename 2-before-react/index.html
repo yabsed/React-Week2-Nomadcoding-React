@@ -12,30 +12,35 @@
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
 <script type="text/babel">
-    
-    let counter = 0; 
-    function countUP() {
-        counter++; 
-        render(); 
-    }
-
-    function render(){
-        // Unless the below it is not being updated!
-        // We only update "the only thing we change~!"
-        ReactDOM.render(<App/>, root); 
-    }
 
     const root = document.getElementById("root"); 
-    const App = () =>
-    <div>
-        <h3>
-            Total Clicks: {counter}
-        </h3>
-        <button onClick={countUP}>
-            click me
-        </button>
-    </div>
-    render(); 
+    function App() {
+
+        let [counter, setCounter] = React.useState(0); 
+        // same as doing
+        // const data = React.useState(0); 
+        // const [counter, setCounter] = [data[0], data[1]]; 
+        
+        const onClick = () => {
+            setCounter(counter+1);  
+            // counter++ is inefficient
+            // becasuse it requires additional rendering
+        }
+
+        // recreate everything with new value!
+        
+        return (
+            <div>
+                <h3>
+                    Total Clicks: {counter}
+                </h3>
+                <button onClick={onClick}>
+                    click me
+                </button>
+            </div>
+        ); 
+    } 
+    ReactDOM.render(<App/>, root);
 
 </script>
 </script>
