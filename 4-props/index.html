@@ -13,7 +13,11 @@
 
 <script type="text/babel">
 
-    function SaveBtn() {
+    function Btn(props) {
+
+        // object props has key
+        // called "banana"
+
         return <button style={{
             backgroundColor: "tomato", 
             color:"white",
@@ -21,30 +25,21 @@
             border: 0,
             borderRadius: 10
         }}>
-            Save Changes
+            {props.banana}
         </button>
     }
 
-    function ConfirmBtn() {
-        return <button style={{
-            backgroundColor: "tomato", 
-            color:"white",
-            padding: "10px 20px",
-            border: 0,
-            borderRadius: 10
-        }}>
-            Confirm
-        </button>
-    }
-
+    // btn is a function
+    // and we are sending arguments to parameters!
     function App() {
         return (
             <div>
-                <SaveBtn/>
-                <ConfirmBtn/>
+                <Btn banana="Save Changes"/>
+                <Btn banana="Continue"/>
             </div>
         );
     }
+    // we made sth reusable
 
     const root = document.getElementById("root");
     ReactDOM.render(<App/>, root);
