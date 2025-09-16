@@ -13,25 +13,42 @@
 
 <script type="text/babel">
 
-    function Btn({banana, big}) {
+    function Btn({banana, onClick}) {
 
-        return <button style={{
-            backgroundColor: "tomato", 
-            color:"white",
-            padding: "10px 20px",
-            border: 0,
-            borderRadius: 10,
-            fontSize: big ? 18 : 10,
-        }}>
+        // onClick is just my custom prop
+        // ⚠️ you have to work out how it should work
+
+        return <button 
+            onClick = {onClick}
+            style={{
+                backgroundColor: "tomato", 
+                color:"white",
+                padding: "10px 20px",
+                border: 0,
+                borderRadius: 10,
+            }}
+        >
             {banana}
         </button>
     }
 
     function App() {
+
+        const [value, setValue] = React.useState("Save Changes"); 
+        const changeValue = () => setValue("Revert Changes"); 
+
+        // when you click "Save Changes"
+        // "Continue" is also refreshed
+
+        // update "value"
+        // └- React detect change inside App()
+        // redraw all App()
+        // └- including "Continue" 
+
         return (
             <div>
-                <Btn banana="Save Changes" big={true}/>
-                <Btn banana="Continue" big={false}/>
+                <Btn banana={value} onClick={changeValue}/>
+                <Btn banana="Continue"/>
             </div>
         );
     }
