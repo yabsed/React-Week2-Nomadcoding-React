@@ -10,49 +10,38 @@
 <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
 <!-- Babel -->
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<!-- Prop-Tyes -->
+<script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
 
 <script type="text/babel">
 
-    function Btn({banana, onClick}) {
+    function Btn({banana, fontSize}) {
 
         // onClick is just my custom prop
         // ⚠️ you have to work out how it should work
 
         return <button 
-            onClick = {onClick}
             style={{
                 backgroundColor: "tomato", 
                 color:"white",
                 padding: "10px 20px",
                 border: 0,
                 borderRadius: 10,
+                fontSize: fontSize
             }}
         >
             {banana}
         </button>
     }
 
-    // Don't need to redraw 
-    // unless the props are changed
-    const MemorizedBtn = React.memo(Btn)
-
     function App() {
 
         const [value, setValue] = React.useState("Save Changes"); 
         const changeValue = () => setValue("Revert Changes"); 
 
-        // when you click "Save Changes"
-        // "Continue" is also refreshed
-
-        // update "value"
-        // └- React detect change inside App()
-        // redraw all App()
-        // └- including "Continue" 
-
         return (
             <div>
-                <MemorizedBtn banana={value} onClick={changeValue}/>
-                <MemorizedBtn banana="Continue"/>
+                <Btn banana={value} fontSize={16}/>
             </div>
         );
 
