@@ -3,7 +3,7 @@ import styles from "./Button.module.css"
 
 function Button({text}) {
     
-    console.log(styles); 
+    // console.log(styles); 
     // {btn: '_btn_fakxa_1'}
 
     return <button className={styles.btn}>
