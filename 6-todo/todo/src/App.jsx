@@ -15,7 +15,6 @@ function App() {
     }
     setToDos((currentArray) => [toDo, ...currentArray]);
     setToDo("");
-    console.log(toDos);
   };
 
   return (
@@ -30,10 +29,14 @@ function App() {
         />
         <button>Add To Do</button>
       </form>
+      <hr />
+      <ul>
+        {toDos.map((item, idx) => (
+          <li key={idx}>{item}</li>
+        ))}
+      </ul>
     </>
   );
-
-  //adsfadsf
 }
 
 export default App;
