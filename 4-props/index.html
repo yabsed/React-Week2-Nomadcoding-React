@@ -15,7 +15,8 @@
 
 <script type="text/babel">
 
-    function Btn({banana, fontSize}) {
+    // same as prop.banana
+    function Btn({banana, fontSize = 14}) {
 
         // onClick is just my custom prop
         // ⚠️ you have to work out how it should work
@@ -35,8 +36,10 @@
     }
 
     Btn.propTypes = {
-        text : PropTypes.string, 
-        fontSize : PropTypes.number
+        banana : PropTypes.string.isRequired, 
+        
+        fontSize : PropTypes.number 
+        // fontSize is not Required and we have default value above. 
     }
 
     function App() {
@@ -46,8 +49,8 @@
 
         return (
             <div>
-                <Btn banana={value} fontSize={16}/>
-                <Btn banana={"fontSize String"} fontSize={"Shoud be a Number"}/>
+                <Btn banana={value} fontSize={26}/>
+                <Btn banana={"fontSize String"}/>
             </div>
         );
 
