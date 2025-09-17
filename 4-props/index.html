@@ -5,7 +5,7 @@
     <div id="root"></div>
 </body>
 <!-- ReactJS -->
-<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
 <!-- ReactDOM -->
 <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
 <!-- Babel -->
@@ -34,6 +34,11 @@
         </button>
     }
 
+    Btn.propTypes = {
+        text : PropTypes.string, 
+        fontSize : PropTypes.number
+    }
+
     function App() {
 
         const [value, setValue] = React.useState("Save Changes"); 
@@ -42,6 +47,7 @@
         return (
             <div>
                 <Btn banana={value} fontSize={16}/>
+                <Btn banana={"fontSize String"} fontSize={"Shoud be a Number"}/>
             </div>
         );
 
