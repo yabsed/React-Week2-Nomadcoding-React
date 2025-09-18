@@ -4,7 +4,7 @@
 
 ![](hw1/image.png)  
 
-[My React Env](https://github.com/yabsed/Nomadcoding-React/blob/main/hw1/hw1.mp4)
+[My React Env](hw1/hw1.mp4)
 
 ## HW2
 
@@ -13,3 +13,5 @@
 [Finished Project](https://yabsed.github.io/Nomadcoding-React)
 
 ## HW3
+
+[Basic TS](hw3/memo.md)
