@@ -1,22 +1,21 @@
-function sum(x: number, y:number): number {
-
-    // Type 'null' is not assignable 
-    // to type 'number'.
-
-    // return null; 
-    
-    return x + y; 
+interface Person {
+    name: string; 
+    age?: number; 
+}
+interface Developer extends Person{
+    skills: string[]; 
 }
 
-sum(1, 2); 
+const person : Person = {
+    name : "Charles", 
+    age : 80
+}; 
 
-function sumArray(numbers: number[]) : number {
-    return numbers.reduce((acc, current) => acc + current, 0); 
-}
+const expert : Developer = {
+    name : "Linus",
+    skills : ['C', 'Linux']
+}; 
 
-const total = sumArray([1,2,3,4,5]); 
+const people: Person[] = [person, expert]; 
 
-function returnNothing() : void {
-    console.log("Hi"); 
-}
-
+console.log(people); 

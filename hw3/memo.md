@@ -111,3 +111,106 @@ function returnNothing() : void {
     console.log("Hi"); 
 }
 ```
+
+## interface 
+
+클래스 또는 객체를 위한 타입을 지정할 때 사용되는 문법
+
+### class에 적용
+```
+interface Shape {
+  getArea(): number;
+}
+
+class Circle implements Shape {
+  radius: number;
+
+  constructor(radius: number) {
+    this.radius = radius;
+  }
+
+  getArea() {
+    return this.radius * this.radius * Math.PI;
+  }
+}
+
+class Rectangle implements Shape {
+  width: number;
+  height: number;
+
+  constructor(width: number, height: number) {
+    this.width = width;
+    this.height = height;
+  }
+
+  getArea() {
+    return this.width * this.height;
+  }
+}
+
+const shapes: Shape[] = [new Circle(5), new Rectangle(10, 5)];
+
+shapes.forEach((shape) => {
+  console.log(shape.getArea());
+});
+```
+
+#### public, private accessor
+
+`constructor(private radius: number) {}`처럼 작성
+
+```
+interface Shape {
+  getArea(): number;
+}
+
+class Circle implements Shape {
+  constructor(private radius: number) {}
+  getArea() {
+    return Math.PI * this.radius ** 2;
+  }
+}
+
+class Rectangle implements Shape {
+  constructor(public width: number, public height: number) {}
+  getArea() {
+    return this.width * this.height;
+  }
+}
+
+const shapes: Shape[] = [new Circle(5), new Rectangle(10, 5)];
+shapes.forEach((shape) => console.log(shape.getArea()));
+```
+
+### 일반 객체에 적용
+
+```
+interface Person {
+    name: string; 
+    age?: number; 
+}
+interface Developer extends Person{
+    skills: string[]; 
+}
+
+const person : Person = {
+    name : "Charles", 
+    age : 80
+}; 
+
+const expert : Developer = {
+    name : "Linus",
+    skills : ['C', 'Linux']
+}; 
+
+const people: Person[] = [person, expert]; 
+
+console.log(people); 
+```
+
+```
+[
+  { name: 'Charles', age: 80 },
+  { name: 'Linus', skills: [ 'C', 'Linux' ] }
+]
+```
