@@ -1,21 +1,29 @@
-interface Person {
-    name: string; 
-    age?: number; 
-}
-interface Developer extends Person{
-    skills: string[]; 
-}
+type Person = {
+    name: string;
+    age?: number;
+};
 
-const person : Person = {
-    name : "Charles", 
-    age : 80
-}; 
+type Developer = Person & {
+    skills: string[];
+};
 
-const expert : Developer = {
-    name : "Linus",
-    skills : ['C', 'Linux']
-}; 
+const person: Person = {
+    name: "Charles",
+    age: 80
+};
 
-const people: Person[] = [person, expert]; 
+const expert: Developer = {
+    name: "Linus",
+    skills: ['C', 'Linux']
+};
 
-console.log(people); 
+type People = Person[]; 
+const people: People = [person, expert];
+
+console.log(people);
+
+type Color = 'red' | 'orange' | 'yellow';
+const color: Color = 'red';
+const colors: Color[] = ['red', 'orange'];
+
+console.log(color, colors); 

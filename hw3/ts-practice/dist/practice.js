@@ -10,4 +10,7 @@ const expert = {
 };
 const people = [person, expert];
 console.log(people);
+const color = 'red';
+const colors = ['red', 'orange'];
+console.log(color, colors);
 //# sourceMappingURL=practice.js.map
