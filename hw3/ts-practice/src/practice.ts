@@ -1,26 +1,15 @@
-function merge<A, B>(a: A, b: B): A & B {
-  return {
-    ...a,
-    ...b
-  };
-}
-
-const merged = merge({ foo: 1 }, { bar: 1 });
-
-// const merged: {
-//     foo: number;
-// } & {
-//     bar: number;
-// }
-
-function wrap<T>(param: T) {
-  return {
-    param
+class Queue<T> {
+  list: T[] = [];
+  get length() {
+    return this.list.length;
+  }
+  enqueue(item: T) {
+    this.list.push(item);
+  }
+  dequeue() {
+    return this.list.shift();
   }
 }
 
-const wrapped = wrap(10);
-
-// const wrapped: {
-//     param: number;
-// }
+const queue = new Queue<number>();
+// const queue: Queue<number>
