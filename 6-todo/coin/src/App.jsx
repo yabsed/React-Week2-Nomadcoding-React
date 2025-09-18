@@ -8,8 +8,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/movie/:id" element={<Detail />} />
+        <Route path="/Nomadcoding-React/" element={<Home />} />
+        <Route path="/Nomadcoding-React/movie/:id" element={<Detail />} />
       </Routes>
     </Router>
   );
