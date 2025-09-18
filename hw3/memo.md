@@ -37,3 +37,21 @@
 
 * `"sourceMap": true"`: 코드가 자바스크립트로 변환된 후에도, 브라우저 개발자 도구에서 원래의 **타입스크립트 코드를 보면서 디버깅**할 수 있게 해주는 아주 유용한 기능입니다. 🐛
 * `"declaration": true"`: 만약 이 프로젝트를 다른 사람이 가져다 쓸 라이브러리로 만든다면, 코드의 타입 정보를 담은 파일(`.d.ts`)을 자동으로 생성해줍니다.
+
+## my fist `tsc`
+- `src/practice.ts`
+    ```
+    const msg: string = 'hello world'; 
+    console.log(msg); 
+    ```
+
+- `dist/practice.js`
+    ```
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    const msg = 'hello world';
+    console.log(msg);
+    //# sourceMappingURL=practice.js.map%   
+    ```
+    - **컴파일 과정**에서 타입이 사라졌다. 
+
