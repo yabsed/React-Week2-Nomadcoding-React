@@ -1,24 +1,22 @@
-let count = 0; 
-count ++; 
+function sum(x: number, y:number): number {
 
-// error!
-// count = "raise error"; 
+    // Type 'null' is not assignable 
+    // to type 'number'.
 
-const msg: string = 'hello world'; 
-const done: boolean = true; 
+    // return null; 
+    
+    return x + y; 
+}
 
-const numbers: number[] = [1,2,3]; 
-const msgs: string[] = ['hello', 'world']; 
+sum(1, 2); 
 
-// error!
-// msg.push(1); 
+function sumArray(numbers: number[]) : number {
+    return numbers.reduce((acc, current) => acc + current, 0); 
+}
 
-let mightBeUndefined: string | undefined = undefined; 
-let nullableNumber: number | null = null; 
+const total = sumArray([1,2,3,4,5]); 
 
-let color: 'red' | 'orange' | 'yellow' = 'yellow'; 
+function returnNothing() : void {
+    console.log("Hi"); 
+}
 
-color = 'red'; 
-
-// error!
-// color = 'blue'; 
