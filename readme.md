@@ -10,7 +10,7 @@
 
 ![](hw2/image.png)  
 
-[Finished Project](https://yabsed.github.io/Nomadcoding-React)
+[Finished Project](https://yabsed.github.io/React-Week2-Nomadcoding-React)
 
 ## HW3
 

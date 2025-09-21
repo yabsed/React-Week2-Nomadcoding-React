@@ -9,5 +9,5 @@ export default defineConfig({
       usePolling: true,
     },
   },
-  base: '/Nomadcoding-React/'
+  base: '/React-Week2-Nomadcoding-React/'
 })
